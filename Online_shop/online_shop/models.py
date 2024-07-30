@@ -51,7 +51,7 @@ class Order(models.Model):
 class Comment(models.Model):
     text = models.TextField()
     filtered_text = models.TextField(blank=True, null=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', default=1)  # default=1 o'rniga o'zingizga kerakli qiymatni kiriting
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', default=1)
 
     def save(self, *args, **kwargs):
         bad_words = ['ahmoq', 'jin ursin', 'jinni3']
