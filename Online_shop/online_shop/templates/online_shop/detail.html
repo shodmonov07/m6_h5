@@ -37,7 +37,8 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input type="text" class="form-contro">
+                        <input type="text" placeholder="Search" class="form-contro">
+                        &nbsp;
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-search-fill me-1"></i>
                             Search
@@ -56,6 +57,7 @@
                         <div class="small mb-1">Rating: 124 </div>
                         <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
                         <div class="fs-5 mb-5">
+                            {% if product.is_sale == True %}
                                 <strike style="opacity: 0.5;">
                                        ${{ product.price }}
                                     </strike>
@@ -65,7 +67,9 @@
                                     <div class="bi-star-fill"></div>&nbsp;&nbsp;Sale!&nbsp;&nbsp;
                                     <div class="bi-star-fill"></div>
                                 </div>
-
+                                {% else %}
+                               ${{ product.price }}
+                            {% endif %}
 
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>

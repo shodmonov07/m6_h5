@@ -9,6 +9,9 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -54,7 +57,7 @@ class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', default=1)
 
     def save(self, *args, **kwargs):
-        bad_words = ['ahmoq', 'jin ursin', 'jinni3']
+        bad_words = ['ahmoq', 'jin ursin', 'jinni']
         comment_filter = Comment.CommentFilter(bad_words)
         self.filtered_text = comment_filter.filter_comment(self.text)
         super().save(*args, **kwargs)
